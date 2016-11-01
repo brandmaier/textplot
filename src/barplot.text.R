@@ -1,15 +1,14 @@
-require("Unicode")
+#require("Unicode")
 
-text.multiline.barplot.twitter<-function(x, num.lines=5)
+text.multiline.barplot.twitter<-function(x, num.lines=5, char="\u2588")
 {
-  char <- "X"
-  frac_seq <- (1:num_lines)/num_lines
+  frac_seq <- (1:num.lines)/num.lines
   rel.x <- x / (max(x))
   #cat(rel.x)
   find.index <- function(x){min(which(x <= frac_seq))}
   mapping <- sapply(rel.x, FUN=find.index)
   
-  strs<- t(sapply(num_lines:1, function(x) {paste(ifelse(mapping>=x, char," "),sep="",collapse = "")} ))
+  strs<- t(sapply(num.lines:1, function(x) {paste(ifelse(mapping>=x, char," "),sep="",collapse = "")} ))
   cat(paste(strs,collapse="\n"))
 }
 
